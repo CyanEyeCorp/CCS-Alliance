@@ -1,0 +1,385 @@
+<html><head><base href="https://roblox.com" target="_blank">
+    <title>CyanEye Alliance</title>
+    <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0a192f;
+      color: #fff;
+    }
+    
+    .header {
+      background: linear-gradient(45deg, #00c3ff, #0066cc);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .logo {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.5s ease;
+      animation: floatIn 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      visibility: hidden;
+    }
+    
+    @keyframes floatIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 10px #00c3ff;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #00c3ff;
+      border-radius: 20px;
+      margin: 0.5rem;
+      animation: badgeFloat 0.5s ease-out forwards;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    @keyframes badgeFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .badge:nth-child(1) { animation-delay: 0.8s; }
+    .badge:nth-child(2) { animation-delay: 0.9s; }
+    .badge:nth-child(3) { animation-delay: 1s; }
+    
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #00c3ff, #0066cc);
+      border-radius: 50%;
+      margin-left: 10px;
+      box-shadow: 0 0 15px rgba(0,195,255,0.5);
+      animation: pulseLevel 2s infinite;
+    }
+    
+    @keyframes pulseLevel {
+      0% { transform: scale(1); box-shadow: 0 0 15px rgba(0,195,255,0.5); }
+      50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(0,195,255,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 15px rgba(0,195,255,0.5); }
+    }
+    
+    .leaderboard {
+      background: rgba(0,195,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    
+    .benefit-icon {
+      display: inline-block;
+      margin-right: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .benefit-item {
+      animation: slideIn 0.5s ease-out forwards;
+      opacity: 0;
+      transform: translateX(-20px);
+      visibility: hidden;
+    }
+    
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .benefit-item:nth-child(1) { animation-delay: 1.1s; }
+    .benefit-item:nth-child(2) { animation-delay: 1.2s; }
+    .benefit-item:nth-child(3) { animation-delay: 1.3s; }
+    
+    .founder-img {
+      max-width: 200px;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 0 20px rgba(0,195,255,0.5);
+      transition: transform 0.3s ease;
+    }
+    
+    .founder-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .partners-container {
+        position: relative;
+        padding: 0 40px;
+    }
+    
+    .partners-scroll {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        white-space: nowrap;
+        padding: 20px 0;
+    }
+    
+    .partners-scroll::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .partner-item {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        margin: 0 20px;
+        white-space: normal;
+        width: 300px;
+    }
+    
+    .partner-logo {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,195,255,0.3);
+        transition: transform 0.3s ease;
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <img src="https://nx9m7qcvb068y390_1n0.c.wbsm.ai/IMG_3840.png" class="logo" alt="CyanEye Alliance Logo" style="object-fit: contain;">
+      <h1 class="glow-text">CyanEye Alliance</h1>
+      <p>Official Guide for Cabin Crew Operations</p>
+    </div>
+    
+    <div class="container">
+      <div class="card">
+        <h2>Alliance Level: <span class="level-badge">1</span></h2>
+        <div class="badges">
+          <span class="badge">Weekly Quota: 20 Flights or 50K SkyBux</span>
+        </div>
+      </div>
+    
+      <div class="card">
+        <h2>Alliance Benefits</h2>
+        <div class="benefit-item">
+          <span class="benefit-icon">&#x1f31f;</span>
+          <strong>Active Community:</strong> Connect with dedicated players and form lasting friendships
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">&#x1f4aa;</span>
+          <strong>Great Support:</strong> Experience unmatched assistance from fellow alliance members
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">&#x23f0;</span>
+          <strong>Level 1 Time Bonus:</strong> 20% more time for departure and arrival
+          <ul>
+            <li>Extended boarding time</li>
+            <li>More flexibility for departures</li>
+            <li>Additional buffer for arrivals</li>
+            <li>Progresses to 80% bonus at Level 4</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="card">
+        <h2>Strategy for Success</h2>
+        <ul>
+          <li>Complete perfect flights with zero mistakes</li>
+          <li>Focus on VIP passenger satisfaction</li>
+          <li>Maintain 100% attendance rate</li>
+          <li>Assist new players to earn bonus points</li>
+          <li>Participate in all special events</li>
+        </ul>
+      </div>
+    
+      <div class="card">
+        <h2>About CyanEye Alliance</h2>
+        <p>CyanEye Alliance is an elite group of aviation enthusiasts within the Roblox Cabin Crew community. We specialize in providing exceptional in-flight service and maintaining the highest standards of professionalism.</p>
+        <h3>Meet Our Founder</h3>
+        <img src="/IMG_3838.webp" alt="IamME - Founder of CyanEye Alliance" class="founder-img">
+        <p><strong>IamME</strong> - Founder and Leader of CyanEye Alliance</p>
+      </div>
+    
+      <div class="card">
+        <h2>Our Partners</h2>
+        <div class="partners-container">
+            <div class="partners-scroll">
+                <div class="partner-item">
+                    <img src="/IMG_3843.png" alt="XNY&apos;s Liveries" class="partner-logo">
+                    <h3>XNY&apos;s Liveries</h3>
+                    <p>Official livery partner of CyanEye Alliance</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <h2>Our Mission</h2>
+        <p>To create an immersive and realistic flight experience for all passengers while maintaining safety and service excellence.</p>
+        <div class="badges">
+          <span class="badge">Safety First</span>
+          <span class="badge">Professional Service</span>
+          <span class="badge">Team Excellence</span>
+        </div>
+      </div>
+    
+      <div class="card">
+        <h2>Point Earning Guide</h2>
+        <ul>
+          <li>Perfect Service: +100 points</li>
+          <li>VIP Satisfaction: +200 points</li>
+          <li>Team Leadership: +150 points</li>
+          <li>Special Events: +500 points</li>
+          <li>Training New Members: +300 points</li>
+        </ul>
+      </div>
+    
+      <div class="card">
+        <h2>Join Our Push to Top 10</h2>
+        <p>Requirements:</p>
+        <ul>
+          <li>Minimum 10 hours in Cabin Crew</li>
+          <li>Professional attitude</li>
+          <li>Strong communication skills</li>
+          <li>Dedication to excellence</li>
+          <li>Commitment to daily point goals</li>
+        </ul>
+      </div>
+    
+      <div class="card">
+        <h2>Join Us</h2>
+        <p>Ready to become part of an elite aviation team? Join CyanEye Alliance today!</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://www.roblox.com/communities/17125766/Cyan-Eye#!/about" class="badge" style="text-decoration: none; cursor: pointer;">
+            Join Our Roblox Group
+          </a>
+          <a href="https://discord.gg/Aqc8avBu" class="badge" style="text-decoration: none; cursor: pointer;">
+            Join Our Discord
+          </a>
+        </div>
+    
+        <h3>Application Form</h3>
+        <div style="max-width: 100%; overflow-x: auto;">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec82VM0Wb5DpMKAzQsljw2qq6pUQpER-5aD_FaZWCg5sCsPg/viewform?embedded=true" width="100%" height="978" frameborder="0" marginheight="0" marginwidth="0" style="max-width: 640px;">
+            Loading...
+          </iframe>
+        </div>
+      </div>
+    
+      <div class="card">
+        <h2>Strategy for Success</h2>
+        <ul>
+          <li>Complete perfect flights with zero mistakes</li>
+          <li>Focus on VIP passenger satisfaction</li>
+          <li>Maintain 100% attendance rate</li>
+          <li>Assist new players to earn bonus points</li>
+          <li>Participate in all special events</li>
+        </ul>
+      </div>
+    
+    </div>
+    
+    <script>document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.visibility = 'visible';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.card, .badge, .benefit-item').forEach(el => {
+      observer.observe(el);
+    });
+    const scrollContainer = document.querySelector('.partners-scroll');
+    const scrollLeftBtn = document.querySelector('.scroll-left');
+    const scrollRightBtn = document.querySelector('.scroll-right');
+    scrollLeftBtn.addEventListener('click', () => {
+      scrollContainer.scrollBy({
+        left: -320,
+        behavior: 'smooth'
+      });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+      scrollContainer.scrollBy({
+        left: 320,
+        behavior: 'smooth'
+      });
+    });</script>
+    
+    </body>
+    </html>
