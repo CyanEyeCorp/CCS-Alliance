@@ -1,2 +1,2 @@
 # Host repo
-"https://cyaneye.online"
+https://cyaneye.online
